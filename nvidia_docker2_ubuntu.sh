@@ -5,6 +5,7 @@ Prerequisites:
 Docker >= 1.12
 NVIDIA gpu
 NVIDIA drivers
+see https://github.com/NVIDIA/nvidia-docker for details
 """
 
 # Add the package repositories
