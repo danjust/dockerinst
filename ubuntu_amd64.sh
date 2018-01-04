@@ -1,3 +1,7 @@
+#!/bin/sh
+
+"""Installs docker_ce for ubuntu"""
+
 sudo apt-get update
 
 sudo apt-get install \
@@ -6,9 +10,11 @@ sudo apt-get install \
     curl \
     software-properties-common
 
+# Add Docker repository
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-if sudo apt-key fingerprint 0EBFCD88 | grep -q Docker; then 
+# Check for correct key
+if sudo apt-key fingerprint 0EBFCD88 | grep -q Docker; then
     sudo add-apt-repository \
         "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
         $(lsb_release -cs) \
