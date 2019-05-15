@@ -1,6 +1,6 @@
 #!/bin/sh
 
-"""Script installs nvidia_docker2 in a ubuntu16.04 environment
+"""Script installs nvidia_docker2 in a linux environment
 Prerequisites:
 Docker >= 1.12
 NVIDIA gpu
@@ -11,7 +11,8 @@ see https://github.com/NVIDIA/nvidia-docker for details
 # Add the package repositories
 curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
   sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/amd64/nvidia-docker.list | \
   sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 sudo apt-get update
 
